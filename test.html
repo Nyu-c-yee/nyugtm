@@ -30,21 +30,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  
-<h1>這是測試網站</h1>
-  <h2>網站內已架設好 GTM 和 GA4.</h2>
-<button id="bt1" onclick = "myalert()" >click</button>
+    <h1>這是測試網站</h1>
+      <h2>網站內已架設好 GTM 和 GA4.</h2>
+    <button id="bt1" onclick = "myalert()" >click</button>
+    
+    <button id="bt2" onclick = "myalert()">點擊</button>
+    
+    <button id="bt3" onclick = "myalert()">取消</button>
 
-<button id="bt2" onclick = "myalert()">點擊</button>
+    <div id = "displayid">請登入</div>
 
-<button id="bt3" onclick = "myalert()">取消</button>
+    <input id ="memberid">請輸入</input>
+    <button id="summit" onclick = "summit()">登入</button>
+
 
 </body>
-
+    
 <script>
-    function myalert() {
-        alert("按鈕被點擊");
-    }
+        function myalert() {
+            alert("按鈕被點擊");
+        }
+            
+        function summit() {
+            let inputElement = document.getElementById("memberid");
+            let displayid = document.getElementById("displayid");
+            let inputValue = inputElement.value;
+
+            // 將輸入的值顯示出來
+            displayid.innerText = "歡迎，" + inputValue;
+
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+            event: 'member_login',
+            member_id: inputValue}   
+        );
+        }
 </script>
 
 
